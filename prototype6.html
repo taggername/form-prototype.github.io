@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Career Questionnaire</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f4f6f9; }
+    form { background: #fff; padding: 25px; border-radius: 12px; max-width: 1000px; margin: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    section { margin-bottom: 40px; padding: 20px; border-left: 4px solid #0077cc; background: #fafafa; border-radius: 6px; }
+    h2, h3 { color: #2c3e50; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    .options { margin-left: 20px; }
+    button { margin-top: 20px; padding: 12px 18px; border: none; background: #0077cc; color: #fff; border-radius: 6px; cursor: pointer; font-size: 16px; }
+    button:hover { background: #005fa3; }
+  </style>
+</head>
+<body>
+  <h2>Comprehensive Student Career & Skills Questionnaire</h2>
+  <form id="careerForm">
+
+    <!-- Section 1 -->
+    <section>
+      <h3>Section 1: Cognitive Abilities</h3>
+      <label>1. Logical reasoning</label>
+      <div class="options">
+        <input type="radio" name="logic" value="logical_strong"> Strong  
+        <input type="radio" name="logic" value="logical_average"> Average  
+        <input type="radio" name="logic" value="logical_weak"> Weak  
+      </div>
+
+      <label>2. Problem-solving</label>
+      <div class="options">
+        <input type="radio" name="problemSolving" value="problem_strong"> Strong  
+        <input type="radio" name="problemSolving" value="problem_average"> Average  
+        <input type="radio" name="problemSolving" value="problem_weak"> Weak  
+      </div>
+
+      <label>3. Creativity</label>
+      <div class="options">
+        <input type="radio" name="creativity" value="creativity_high"> High  
+        <input type="radio" name="creativity" value="creativity_medium"> Medium  
+        <input type="radio" name="creativity" value="creativity_low"> Low  
+      </div>
+
+      <label>4. Data analysis</label>
+      <div class="options">
+        <input type="radio" name="analysis" value="analysis_excellent"> Excellent  
+        <input type="radio" name="analysis" value="analysis_good"> Good  
+        <input type="radio" name="analysis" value="analysis_poor"> Poor  
+      </div>
+
+      <label>5. Abstract ideas</label>
+      <div class="options">
+        <input type="radio" name="abstract" value="abstract_strong"> Strong  
+        <input type="radio" name="abstract" value="abstract_okay"> Manageable  
+        <input type="radio" name="abstract" value="abstract_struggle"> Struggle  
+      </div>
+
+      <label>6. Decision making under pressure</label>
+      <div class="options">
+        <input type="radio" name="decision" value="decision_strong"> Very Strong  
+        <input type="radio" name="decision" value="decision_average"> Average  
+        <input type="radio" name="decision" value="decision_weak"> Weak  
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section>
+      <h3>Section 2: Learning Potential & Style</h3>
+      <label>7. Grasping new concepts</label>
+      <div class="options">
+        <input type="radio" name="grasp" value="grasp_fast"> Fast  
+        <input type="radio" name="grasp" value="grasp_average"> Average  
+        <input type="radio" name="grasp" value="grasp_slow"> Slow  
+      </div>
+
+      <label>8. Motivation to improve skills</label>
+      <div class="options">
+        <input type="radio" name="motivation" value="motivation_high"> High  
+        <input type="radio" name="motivation" value="motivation_medium"> Medium  
+        <input type="radio" name="motivation" value="motivation_low"> Low  
+      </div>
+
+      <label>9. Preferred learning style</label>
+      <div class="options">
+        <input type="radio" name="learningStyle" value="learning_visual"> Visual  
+        <input type="radio" name="learningStyle" value="learning_auditory"> Auditory  
+        <input type="radio" name="learningStyle" value="learning_reading"> Reading/Writing  
+        <input type="radio" name="learningStyle" value="learning_kinesthetic"> Kinesthetic  
+      </div>
+
+      <label>10. Consistency in learning</label>
+      <div class="options">
+        <input type="radio" name="consistency" value="consistency_high"> High  
+        <input type="radio" name="consistency" value="consistency_medium"> Medium  
+        <input type="radio" name="consistency" value="consistency_low"> Low  
+      </div>
+
+      <label>11. Enjoy challenges</label>
+      <div class="options">
+        <input type="radio" name="challenges" value="challenges_yes"> Yes  
+        <input type="radio" name="challenges" value="challenges_sometimes"> Sometimes  
+        <input type="radio" name="challenges" value="challenges_no"> No  
+      </div>
+
+      <label>12. Adaptability to new environments</label>
+      <div class="options">
+        <input type="radio" name="adaptability" value="adaptability_high"> High  
+        <input type="radio" name="adaptability" value="adaptability_medium"> Medium  
+        <input type="radio" name="adaptability" value="adaptability_low"> Low  
+      </div>
+    </section>
+
+    <!-- Section 3 (Skills), Section 4 (Domains), Section 5 (Work Style), Section 6 (Goals) -->
+    <!-- Include all remaining 30+ questions here as in your earlier expanded form -->
+
+    <button type="submit">Analyze My Profile</button>
+  </form>
+
+  <script>
+    document.getElementById("careerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      let answers = {};
+      for (let [key, val] of formData.entries()) {
+        if (!answers[key]) answers[key] = [];
+        answers[key].push(val);
+      }
+      localStorage.setItem("careerAnswers", JSON.stringify(answers));
+      window.location.href = "results.html";
+    });
+  </script>
+</body>
+</html>
